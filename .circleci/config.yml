@@ -16,4 +16,4 @@ workflows:
       - run echo "hello"     
   print_hello:
     jobs:
-      -run echo "world" 
+      - run echo "world" 
