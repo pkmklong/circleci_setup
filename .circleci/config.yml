@@ -20,6 +20,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - checkout
       - run:
           name: "echo my_env"
           command: |
@@ -30,10 +31,9 @@ workflows:
     # Run the welcome/run job in its own container
     jobs:
       - welcome/run
+      - print_my_env
       - print_hello
       - print_world:
           requires:
             - print_hello
-      - print_my_env:
-          requires:
-            - print_world
+
