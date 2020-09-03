@@ -20,7 +20,9 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo and finally $MY_ENV
+      - name: "echo my_env"
+      - command: |
+          echo $MY_ENV
 workflows:
   # Name the workflow "welcome"
   welcome:
