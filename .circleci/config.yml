@@ -55,4 +55,8 @@ workflows:
       - print_world:
           requires:
             - print_hello
+      - save_hell_world_output
+      - print_hell_world_file:
+          requires:
+            - save_hell_world_output      
 
