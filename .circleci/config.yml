@@ -36,7 +36,7 @@ jobs:
           paths:
               - output.txt
  
-   print_hell_world_file:
+  print_hell_world_file:
     docker:
       - image: circleci/node:13.8.0
     steps:
