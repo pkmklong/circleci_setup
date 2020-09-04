@@ -25,6 +25,25 @@ jobs:
           name: "echo my_env"
           command: |
               echo $MY_ENV
+              
+  save_hell_world_output:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo "hello world" > ~/output.txt 
+      - persist_to_workspace:
+          root: ~/
+          paths:
+              - output.txt
+ 
+   print_hell_world_file:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - attach_workspace:
+         at: ~/
+      - run: cat ~/output.txt 
+              
 workflows:
   # Name the workflow "welcome"
   welcome:
